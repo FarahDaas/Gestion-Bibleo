@@ -1,0 +1,49 @@
+<div  style="background-image: url(images/books.jpg);">
+  
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="container">
+  <h4 style="color:blue;">Sign Up</h4>
+<br>
+<form #f="ngForm" (ngSubmit)="register(f)"> 
+    <div class="text-center mb-3">
+         
+    <!-- Name input -->
+    <div class="form-outline mb-4">
+      <input type="text" id="registerName" class="form-control" placeholder="Name" name="username" ngModel #username="ngModel"  />
+    </div>
+
+    <!-- Email input -->
+    <div class="form-outline mb-4">
+      <input type="email" id="registerEmail" class="form-control" placeholder="Email" name="email" ngModel #email="ngModel" />
+    </div>
+
+    <!-- Password input -->
+    <div class="form-outline mb-4">
+      <input type="password" id="registerPassword" class="form-control" placeholder="Password" required name="password" ngModel #password="ngModel"/>
+    </div>
+
+
+    
+  <!-- Submit button -->
+  <div class="alert alert-danger" *ngIf="messageError">{{messageError}}</div>
+    <button type="submit" class="btn btn-primary btn-block mb-3">Sign up</button>
+    </div>
+</form>
+
+
+    </div>
+  </div>
+
+
+
+

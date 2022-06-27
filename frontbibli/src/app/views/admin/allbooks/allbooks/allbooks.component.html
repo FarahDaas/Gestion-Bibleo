@@ -1,0 +1,137 @@
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">All books</h6>
+        </div>
+          
+        <div class="card-body">
+            <a routerLink="/admin/addbooks" style="float: right;" class="btn btn-primary">Add books</a>
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                           
+                            <th>Author</th>
+                            <th>Price</th>
+                            <th>Images</th>
+                            <th>Action</th>
+                            
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                          <th>Title</th>
+                          
+                          <th>Author</th>
+                          <th>Price</th>
+                          <th>Images</th>
+                          <th>Action</th>
+                          
+                        </tr>
+                    </tfoot>
+                    <tbody>
+
+                        <tr *ngFor="let item of dataArray;index as i">
+                            <td>{{item.title}}</td>
+                            
+                            <td>{{item.author}}</td>
+                            <td>{{item.price}}</td>
+                            <td>{{item.image}}</td>
+                            <td>
+                                <button class="btn btn-success" (click)="getdata(item._id,item.title,item.discription,item.author,item.price,item.image)"  data-toggle="modal" data-target="#exampleModal" data-toggle="modal" data-target="#exampleModal">Update</button>
+                                <button class="btn btn-info" (click)="details(item._id)" >Details</button>
+                                <button class="btn btn-danger" (click)="delete(item._id,i)">Delete</button>
+                            </td>
+                        </tr>
+                        
+                        
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+  
+  <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+ <!--form update start here-->
+
+  <form #f="ngForm" (ngSubmit)="updatenewbook(f)">
+
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Title</label>
+      <input type="text" class="form-control" placeholder="title" [(ngModel)]="databooks.title" required name="title" #title="ngModel"  ngModel minlength="2" maxlength="20">
+    </div>
+    <div class="alert alert-danger" *ngIf="title.errors?.['required'] && title.touched">
+      this title is required
+    </div>
+
+    
+
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Author</label>
+      <input type="text" class="form-control" placeholder="author" [(ngModel)]="databooks.author" required name="author" #author="ngModel"  ngModel minlength="2" maxlength="20">
+    </div>
+    <div class="alert alert-danger" *ngIf="author.errors?.['required'] && author.touched">
+      this author is required
+    </div>
+
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Price</label>
+      <input type="number" class="form-control" placeholder="price" [(ngModel)]="databooks.price" required name="price" #price="ngModel" ngModel >
+    </div>
+    <div class="alert alert-danger" *ngIf="price.errors?.['required'] && price.touched">
+      this price is required
+    </div>
+
+    <div>
+      <label for="formFileDisabled" class="form-label"> Images </label>
+<input class="form-control" type="file" id="formFileDisabled" required name="image" #image="ngModel" ngModel/>
+    </div>
+    <div class="alert alert-danger" *ngIf="image.errors?.['required'] && image.touched">
+      this image is required
+    </div>
+
+<br>
+<div class="alert alert-success" *ngIf="messagessucces">
+  {{messagessucces}}
+</div> 
+
+   <button class="btn btn-primary" [disabled]="f.invalid" >Update books</button>
+  </form>
+
+
+ 
+ <!--form update end here-->
+  
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

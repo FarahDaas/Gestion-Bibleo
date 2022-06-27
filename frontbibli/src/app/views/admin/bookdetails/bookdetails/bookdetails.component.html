@@ -1,0 +1,12 @@
+<div class="container">
+<ul *ngIf="dataobject">
+    <li>{{dataobject.title}}</li>
+    <li>{{dataobject.discription}}</li>
+    <li>{{dataobject.title}}</li>
+    <li>{{dataobject.author}}</li>
+    <li>{{dataobject.price}}</li>
+</ul>
+<div class="alert alert-danger" *ngIf="messageerr">
+           {{messageerr}}
+</div>
+</div>

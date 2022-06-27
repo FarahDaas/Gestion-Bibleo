@@ -1,0 +1,156 @@
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">All users</h6>
+        </div>
+          
+        <div class="card-body">
+             <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                          <th>username</th>
+                          <th>email</th>
+                          <th>password</th>
+                          <th>Action</th>
+                          
+                        </tr>
+                    </thead>
+                    <br>
+                    <tfoot>
+                        <tr>
+                            <th>username</th>
+                            <th>email</th>
+                            <th>password</th>
+                            <th>Action</th>
+
+                            
+                            
+                        </tr>
+                    </tfoot>
+                    <tbody>
+
+                        <tr *ngFor="let item of dataArray" >
+                            <td>{{item.username}}</td>
+                            <td>{{item.email}}</td>
+                            <td>{{item.password}}</td>
+              
+                            <td>
+                                <button class="btn btn-success" data-toggle="modal" data-target="#exampleModal">Update</button>
+                                <button class="btn btn-info" >Details</button>
+                                <button class="btn btn-danger" >Delete</button>
+                            </td>
+                        </tr>
+                        
+                        
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <!-- form update start here -->
+          <form >
+            <!-- firstName validation start here -->
+                <div class="form-group">
+            
+                  <label for="exampleFormControlInput1">Firstname</label>
+                  <input type="text" class="form-control" placeholder="firstName" required name="firstname"  ngModel minlength="2" maxlength="20">
+                </div>
+                <div class="alert alert-danger" >
+                  FirstName is required
+                </div>
+                <div class="alert alert-danger" >
+                  FirstName must be minimum 2 caractere
+                </div>
+            <!-- lastName validation end here -->
+            
+            <!-- lastName validation start here -->
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">lastname</label>
+                    <input type="text" class="form-control" placeholder="lastname" required name="lastname" minlength="2" maxlength="20" ngModel>
+                  </div>
+                  <div class="alert alert-danger">
+                    lastname is required
+                  </div>
+                  <div class="alert alert-danger" >
+                    lastname must be minimum 2 caractere
+                  </div>
+            <!-- lastName validation end here -->
+            
+            <!-- Email validation start here -->
+            
+                  <div class="form-group">
+                    <label for="exampleFormControlInput1">email</label>
+                    <input type="email" class="form-control" placeholder="email" email required name="email" ngModel>
+                  </div>
+                  <div class="alert alert-danger">
+                    email is required
+                  </div>
+            
+                  <div class="alert alert-danger" >
+                    the input must be email not string
+                  </div>
+            <!-- Email validation end here -->
+            
+            <!-- age validation start here -->
+                  <div class="form-group">
+                    <label for="exampleFormControlInput1">age</label>
+                    <input type="number" class="form-control" placeholder="age" required name="age"  ngModel>
+                  </div>
+                  <div class="alert alert-danger" >
+                    age is required
+                  </div>
+             <!-- age validation end here -->     
+            
+            
+             <!-- Phone validation start here -->
+            
+                  <div class="form-group">
+                    <label for="exampleFormControlInput1">Phone</label>
+                    <input type="number" class="form-control" placeholder="phone" required name="phone"  ngModel>
+                  </div>
+                  <div class="alert alert-danger" >
+                    phone is required
+                  </div>
+            <!-- Phone validation end here -->
+             
+                <div class="alert alert-success" >
+                   
+                </div>      
+
+               <button class="btn btn-primary" >Update student</button>
+              </form>
+
+
+
+          <!-- form update end here -->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
